@@ -1,0 +1,23 @@
+.icon {
+  color: var(--icon-color-primary);
+}
+
+.xs {
+  width: var(--icon-width-xs);
+  height: var(--icon-height-xs);
+}
+
+.sm {
+  width: var(--icon-width-sm);
+  height: var(--icon-height-sm);
+}
+
+.md {
+  width: var(--icon-width-md);
+  height: var(--icon-height-md);
+}
+
+.lg {
+  width: var(--icon-width-lg);
+  height: var(--icon-height-lg);
+}

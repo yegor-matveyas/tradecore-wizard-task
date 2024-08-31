@@ -42,6 +42,12 @@
   --icon-width-md: 32px;
   --icon-height-md: var(--icon-width-md);
 
+  --icon-width-lg: 64px;
+  --icon-height-lg: var(--icon-width-lg);
+
+  --icon-width-xl: 96px;
+  --icon-height-xl: var(--icon-width-xl);
+
   --font-size-xs: 12px;
   --line-height-xs: 16px;
 
@@ -53,4 +59,7 @@
 
   --font-size-lg: 28px;
   --line-height-lg: 36px;
+
+  --font-size-xl: 36px;
+  --line-height-xl: 42px;
 }
