@@ -3,17 +3,11 @@ import Icon from '../../../../components/Atoms/Icon/Icon'
 import Text from '../../../../components/Atoms/Text/Text'
 
 import { useWizard } from '../../Wizard.provider'
-import { Steps } from '../../Wizard.utils'
 
 import styles from './Complete.module.css'
 
 export default function Complete() {
-  const { onReset, onToStepMove } = useWizard()
-
-  const handleAddAnotherBook = () => {
-    onReset()
-    onToStepMove(Steps.GENRE)
-  }
+  const { onReset } = useWizard()
 
   return (
     <div className={styles.container}>
@@ -23,7 +17,7 @@ export default function Complete() {
       <Text variant="heading" size="sm">
         Book added successfully
       </Text>
-      <Button variant="contained" className={styles.button} onClick={handleAddAnotherBook}>
+      <Button variant="contained" className={styles.button} onClick={onReset}>
         Add another book
       </Button>
     </div>
