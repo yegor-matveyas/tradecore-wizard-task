@@ -15,7 +15,7 @@ export default function Wizard() {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <Text variant="heading" size="sm">
+        <Text element="heading" size="sm">
           Add book - New book
         </Text>
       </div>

@@ -50,7 +50,7 @@ function Step({ number, label = '', isActive = false }) {
   return (
     <div className={styles.wrapper}>
       <div className={cx(styles.step, { [styles.active]: isActive })}>{number}</div>
-      <Text bold variant="body" size="xs">
+      <Text bold element="body" size="xs">
         {label}
       </Text>
     </div>
