@@ -1,6 +1,6 @@
 import { createContext, useContext, useReducer, useState } from 'react'
 
-import { newSubgenreReducer, informationReducer, NewSubgenreAction, InformationAction } from './Wizard.store'
+import { newSubgenreReducer, informationReducer, NewSubgenreActions, InformationActions } from './Wizard.store'
 import { defaultContext, Steps } from './Wizard.utils'
 
 const WizardContext = createContext(defaultContext)
@@ -42,8 +42,8 @@ export default function WizardProvider({ children }) {
   }
 
   const handleReset = () => {
-    handleDispatchState(newSubgenreDispatch)(NewSubgenreAction.RESET)
-    handleDispatchState(informationDispatch)(InformationAction.RESET)
+    handleDispatchState(newSubgenreDispatch)(NewSubgenreActions.RESET)
+    handleDispatchState(informationDispatch)(InformationActions.RESET)
     setCurrentStep(Steps.GENRE)
     setSelectedGenre(null)
     setSelectedSubgenre(null)
@@ -52,7 +52,6 @@ export default function WizardProvider({ children }) {
   return (
     <WizardContext.Provider
       value={{
-        books,
         genres,
         currentStep,
         selectedGenre,

@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  width: 100%;
+  min-width: 600px;
+  max-width: 60vw;
+  padding: 16px;
+
+  border: 1px solid var(--bg-color-primary);
+  border-radius: 12px;
+}
+
+.header {
+  margin-bottom: 12px;
+}
+
+@media (width <= 680px) {
+  .container {
+    width: 100%;
+    min-width: unset;
+    max-width: unset;
+  }
+}
