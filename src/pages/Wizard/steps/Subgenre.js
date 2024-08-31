@@ -1,9 +1,9 @@
-import { useMemo } from 'react'
+import { useCallback, useMemo } from 'react'
 
 import Actions from '../../../components/Molecules/Actions/Actions'
 import ButtonGrid from '../../../components/Molecules/ButtonGrid/ButtonGrid'
 
-import { NewSubgenreActions as Action } from '../Wizard.store'
+import { NewSubgenreActions as Action, InformationActions } from '../Wizard.store'
 import { useWizard } from '../Wizard.provider'
 import { Steps } from '../Wizard.utils'
 
@@ -15,14 +15,25 @@ export default function Subgenre() {
     onSubgenreSelect,
     onToStepMove,
     onNewSubgenreStateDispatch: dispatch,
+    onInformationStateDispatch,
   } = useWizard()
+
+  const handleSubgenreSelect = useCallback(
+    ({ id, isDescriptionRequired }) => {
+      if (!isDescriptionRequired) {
+        onInformationStateDispatch(InformationActions.UPDATE, { description: undefined })
+      }
+      onSubgenreSelect(id)
+    },
+    [onInformationStateDispatch, onSubgenreSelect]
+  )
 
   const items = useMemo(() => {
     const genre = genres[selectedGenre]
-    const subgenres = Object.values(genre.subgenres).map(({ id, name }) => ({
-      id,
-      label: name,
-      onClick: () => onSubgenreSelect(id),
+    const subgenres = Object.values(genre.subgenres).map((s) => ({
+      id: s.id,
+      label: s.name,
+      onClick: () => handleSubgenreSelect(s),
     }))
 
     const newItemId = subgenres.length ? subgenres.at(-1).id + 1 : 0
@@ -37,7 +48,7 @@ export default function Subgenre() {
         },
       },
     ]
-  }, [genres, selectedGenre, onSubgenreSelect, onToStepMove])
+  }, [genres, selectedGenre, handleSubgenreSelect, onSubgenreSelect, onToStepMove])
 
   const actions = useMemo(() => {
     return [

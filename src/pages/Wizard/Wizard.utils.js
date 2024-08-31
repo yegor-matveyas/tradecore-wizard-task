@@ -57,8 +57,8 @@ export const defaultSteps = [
  * Default Context Values
  */
 export const defaultNewSubgenreState = {
-  id: null,
-  name: null,
+  id: undefined,
+  name: undefined,
   isDescriptionRequired: false,
 }
 

@@ -31,13 +31,17 @@ export default function WizardProvider({ children }) {
 
   const handleAddSubgenre = () => {
     setGenres((genres) => {
-      return {
+      const newGenres = {
         ...genres,
         [selectedGenre]: {
           ...genres[selectedGenre],
-          [newSubgenreState.id]: { ...newSubgenreState },
+          subgenres: {
+            ...genres[selectedGenre].subgenres,
+            [newSubgenreState.id]: { ...newSubgenreState },
+          },
         },
       }
+      return newGenres
     })
   }
 

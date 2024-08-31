@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-import Button, { BUTTON_VARIANTS } from '../../Atoms/Button/Button'
+import Button, { BUTTON_VARIANTS, BUTTON_TYPES } from '../../Atoms/Button/Button'
 import { ICON_NAMES } from '../../Atoms/Icon/Icon'
 
 import styles from './Actions.module.css'
@@ -14,9 +14,10 @@ Actions.propTypes = {
       disabled: PropTypes.bool,
       label: PropTypes.string.isRequired,
       variant: PropTypes.oneOf(BUTTON_VARIANTS),
+      type: PropTypes.oneOf(BUTTON_TYPES),
       startIcon: PropTypes.oneOf(ICON_NAMES),
       endIcon: PropTypes.oneOf(ICON_NAMES),
-      onClick: PropTypes.func.isRequired,
+      onClick: PropTypes.func,
     })
   ),
   alignment: PropTypes.oneOf(ACTIONS_ALIGNMENTS),
@@ -30,6 +31,7 @@ export default function Actions({ actions = [], alignment = ACTIONS_ALIGNMENTS.a
           key={a.label}
           disabled={a.disabled}
           variant={a.variant}
+          type={a.type}
           startIcon={a.startIcon}
           endIcon={a.endIcon}
           onClick={a.onClick}

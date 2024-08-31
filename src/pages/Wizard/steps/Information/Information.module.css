@@ -1,0 +1,12 @@
+.edition_wrapper {
+  display: flex;
+  flex-flow: wrap;
+  gap: 24px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}

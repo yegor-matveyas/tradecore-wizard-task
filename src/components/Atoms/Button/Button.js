@@ -8,10 +8,12 @@ import Icon, { ICON_NAMES } from '../Icon/Icon'
 import styles from './Button.module.css'
 
 export const BUTTON_VARIANTS = ['outlined', 'contained']
+export const BUTTON_TYPES = ['button', 'submit']
 
 Button.propTypes = {
   disabled: PropTypes.bool,
   variant: PropTypes.oneOf(BUTTON_VARIANTS),
+  type: PropTypes.oneOf(BUTTON_TYPES),
   iconSize: PropTypes.oneOf(SIZES),
   startIcon: PropTypes.oneOf(ICON_NAMES),
   endIcon: PropTypes.oneOf(ICON_NAMES),
@@ -21,6 +23,7 @@ Button.propTypes = {
 export default function Button({
   disabled = false,
   variant = BUTTON_VARIANTS[0],
+  type = BUTTON_TYPES[0],
   iconSize = SIZES[0],
   startIcon,
   endIcon,
@@ -32,6 +35,7 @@ export default function Button({
   return (
     <button
       disabled={disabled}
+      type={type}
       onClick={onClick}
       className={cx(
         styles.button,

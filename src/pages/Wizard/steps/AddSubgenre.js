@@ -53,7 +53,7 @@ export default function AddSubgenre() {
         name="name"
         placeholder="Subgenre name"
         value={name}
-        onChange={(value) => dispatch(Action.UPDATE, { name: value })}
+        onChange={(name) => dispatch(Action.UPDATE, { name })}
       />
       <Input.Checkbox
         name="description-required"

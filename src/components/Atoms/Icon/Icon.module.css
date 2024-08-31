@@ -21,3 +21,8 @@
   width: var(--icon-width-lg);
   height: var(--icon-height-lg);
 }
+
+.xl {
+  width: var(--icon-width-xl);
+  height: var(--icon-height-xl);
+}
