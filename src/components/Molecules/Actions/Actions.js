@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types'
-
 import cx from 'classnames'
 
 import Button, { BUTTON_VARIANTS } from '../../Atoms/Button/Button'
