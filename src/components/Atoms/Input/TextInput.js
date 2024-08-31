@@ -67,7 +67,7 @@ export default function TextInput({
 
 function ActionButton({ icon, size = 'sm' }) {
   return (
-    <button className={cx(styles.action_button, { [styles[size]]: size })}>
+    <button type="button" className={cx(styles.action_button, { [styles[size]]: size })}>
       <Icon name={icon} size={size} />
     </button>
   )
