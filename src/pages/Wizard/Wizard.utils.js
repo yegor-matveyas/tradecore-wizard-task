@@ -76,7 +76,6 @@ export const defaultInformationState = {
 }
 
 export const defaultContext = {
-  books: [],
   genres: data.genres.reduce(
     (acc, g) => ({
       ...acc,
@@ -98,6 +97,6 @@ export const defaultContext = {
   onNewSubgenreStateDispatch: () => undefined,
   onInformationStateDispatch: () => undefined,
   onToStepMove: () => undefined,
-  onBookAdd: () => undefined,
   onReset: () => undefined,
+  onSubgenreAdd: () => undefined,
 }

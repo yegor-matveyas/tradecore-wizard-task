@@ -1,5 +1,10 @@
+import WizardProvider from '../Wizard/Wizard.provider'
 import Wizard from '../Wizard/Wizard'
 
 export default function App() {
-  return <Wizard />
+  return (
+    <WizardProvider>
+      <Wizard />
+    </WizardProvider>
+  )
 }
