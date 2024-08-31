@@ -1,0 +1,22 @@
+.text {
+  color: var(--text-color-primary);
+}
+
+.xs {
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
+}
+
+.sm {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-sm);
+}
+
+.md {
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-md);
+}
+
+.bold {
+  font-weight: 600;
+}
