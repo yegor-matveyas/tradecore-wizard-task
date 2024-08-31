@@ -4,6 +4,8 @@ import AddSubgenreComponent from './steps/AddSubgenre'
 import InformatuinComponent from './steps/Information/Information'
 import CompleteComponent from './steps/Complete/Complete'
 
+import data from '../../utils/genres.json'
+
 /**
  * Step utils
  */
@@ -50,3 +52,52 @@ export const defaultSteps = [
   MappedSteps[Steps.ADD_SUBGENRE],
   MappedSteps[Steps.INFORMATION],
 ]
+
+/**
+ * Default Context Values
+ */
+export const defaultNewSubgenreState = {
+  id: null,
+  name: null,
+  isDescriptionRequired: false,
+}
+
+export const defaultInformationState = {
+  title: undefined,
+  author: undefined,
+  isbn: undefined,
+  publisher: undefined,
+  publishedAt: undefined,
+  pages: undefined,
+  format: undefined,
+  edition: undefined,
+  language: undefined,
+  description: undefined,
+}
+
+export const defaultContext = {
+  books: [],
+  genres: data.genres.reduce(
+    (acc, g) => ({
+      ...acc,
+      [g.id]: {
+        ...g,
+        subgenres: g.subgenres.reduce((a, s) => ({ ...a, [s.id]: s }), {}),
+      },
+    }),
+    {}
+  ),
+  currentStep: Steps.GENRE,
+  selectedGenre: null,
+  selectedSubgenre: null,
+  newSubgenreState: defaultNewSubgenreState,
+  informationState: defaultInformationState,
+
+  onGenreSelect: () => undefined,
+  onSubgenreSelect: () => undefined,
+  onNewSubgenreStateDispatch: () => undefined,
+  onInformationStateDispatch: () => undefined,
+  onToStepMove: () => undefined,
+  onBookAdd: () => undefined,
+  onReset: () => undefined,
+}
